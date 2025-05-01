@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='Player.css')}}">
+    <script src="{{url_for('static', filename='SSS.js')}}"></script>
+    <title>Payment</title>
+    <!--favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static',filename='favicon/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static',filename='favicon/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static', filename='favicon/site.webmanifest')}}">
+    <link rel="mask-icon" href="{{url_for('static', filename='favicon/safari-pinned-tab.svg')}}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <div class="PaymentPage">
+        <!--Logo of rectifiter-->
+        <div class="rectifierLogo">
+            <a href="/"><img src="{{url_for('static', filename='img/logo.png')}}" alt="">
+            <h2 style="color: black;">ectifier</h2></a>
+        </div>
+        <!--Content -->
+        <div class="ContentShow">
+            <img src="{{ url_for('static', filename='FeedBack/Thumbnail/'+ Primium.Thumbnail)}}" alt="">
+            <h3>{{Primium.Title}}</h3>
+            <h4>{{Name}}</h4>
+        </div>
+        <!--Value-->
+        <div class="Value">
+            <h2>{{Primium.Value}} eth</h2>
+        </div>
+        <!--Owner and email-->
+        <div class="Owner">
+            
+            <h4>{{Purcheser}}</h4>
+            <h4 style="left: 50%;">{{PurcheserEmail}}</h4>
+        </div>
+        <!--Account number of metamake wallet-->
+        <div class="AccountNumber">
+            <form action="/Transaction" method="post">
+                <input type="number" name="Value" value="{{Primium.Value}}" style="display: none;">
+                <input type="text" name="Thumbnail" value="{{Primium.Thumbnail}}" style="display: none;">
+                <input type="text" placeholder="Enter your CryptoWallet AccountNumber" name="AccountNumber" required>
+                <button type="submit">Purchase</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

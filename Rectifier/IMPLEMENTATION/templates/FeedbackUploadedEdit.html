@@ -1,0 +1,66 @@
+{% extends "StudioUpload.html"%}
+{%block body%}
+<div class="upload_pop_up">
+    <nav class="content_Type">
+        <ul>
+            <h3>FeedbackUploader</h3>
+        </ul>
+ </nav>
+ <div class="close">
+    <a href="/studios"><H2 style="margin: 0;">+</H2></a>
+ </div>
+ <!--VideoUpload-->
+ <div class="VUpload">
+    <form action="/EditFeedback" enctype="multipart/form-data" method="post">
+        <input type="text" value="{{FBack.Content}}" name="Content" style="visibility: hidden;">
+        <input type="text" value="{{FBack.Thumbnail}}" name="thumb" style="visibility: hidden;">
+        <input type="text" value="{{FBack.Trailer}}" name="Trail" style="visibility: hidden;">
+        <div id="content-preview"></div>
+        <div id="V-content"></div>
+        <div class="content">
+            <label for="thumbnail">
+                <img src="{{url_for('static',filename='img/input box.webp')}}" title="Add a thumble">
+            </label>
+            <input type="file" id="thumbnail" name="Thumbnail" accept="image/*">
+            <!--Old thumnail value-->
+            <div class="video" id="video" style="visibility: hidden;">
+                <input type="file" id="Video" name="Video" accept="video/*">
+                <label for="Video" style="visibility: hidden;">
+                    <p style="color: white;">Enter your Video Content</p>
+                </label>
+            </div>
+        </div>
+        <div class="title">
+            <textarea name="title" id="title"  cols="2" rows="2" placeholder="Enter a title for your video (required)">{{FBack.Title}}</textarea>
+        </div>
+        <div class="much_info">
+            <h3>Pros</h3>
+            <textarea name="Pros" id="title" cols="43"  rows="5" style="resize: none; font-family: Arial, Helvetica, sans-serif;" placeholder="Enter a title for your video (required) Please use bullats for to the point feedback">{{FBack.pros}}</textarea>
+            
+            <div class="Cons">
+                <h3 style="margin-bottom: 5px;">Cons</h3>
+                <textarea name="Cons" id="title" cols="42" rows="5" style="resize: none; font-family: Arial, Helvetica, sans-serif;" placeholder="Enter a title for your video (required) Please use bullats for to the point feedback">{{FBack.cons}}</textarea>
+            </div>
+            <div class="Cons">
+                <h3 style="margin-bottom: 5px;">Catagory</h3>
+                <textarea name="Catagory" id="title" cols="42" rows="5" style="resize: none; font-family: Arial, Helvetica, sans-serif;" placeholder="use'/'between the each type for better suggetion"> {{FBack.Catagory}} </textarea>
+            </div>
+            <div class="age restictions">
+                <input type="number" name="PurchesValue" style="visibility: hidden;" value="{{FBack.Value}}">   <!--this is not for age restriction, But for Css this class named as A_Restriction-->
+                <p style="height: auto; width: 100%;">Sorry! Sir the value of the content is preseted by you and you can not change the value({{FBack.Value}} eth)</p>
+            </div>
+            <div class="suggations">
+                <div id="TrailerC" style="height: auto;margin: 10px; padding:5px;width: 5cm;border-radius: 50px;background-color: rgb(0, 119, 255);">
+                    <input type="file" id="Trailer" name="TrailerV" onchange="changeBackground()" accept="video/*" style="display: none;">
+                    <label for="Trailer" id="LbT">
+                        <p id="TrailerPW" style="color: white;height: auto; width: auto;margin: 0;text-align: center;">enter a trailer here</p>
+                        <p id="TrailerW" style="color: white;height: 0; width: auto;margin: 0;text-align: center;">Trailer</p>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <button type="submit"><p style="margin: 0;color: white;">lunch</p></button>
+    </form>
+ </div>
+</div>
+{%endblock%}
